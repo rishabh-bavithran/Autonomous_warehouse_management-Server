@@ -1,0 +1,6 @@
+Invoking command in '/home/rishabh/ros2_ws/build/pplanner_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rishabh/ros2_ws/src/pplanner_interfaces -DCMAKE_INSTALL_PREFIX=/home/rishabh/ros2_ws/install/pplanner_interfaces
+Invoked command in '/home/rishabh/ros2_ws/build/pplanner_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/rishabh/ros2_ws/src/pplanner_interfaces -DCMAKE_INSTALL_PREFIX=/home/rishabh/ros2_ws/install/pplanner_interfaces
+Invoking command in '/home/rishabh/ros2_ws/build/pplanner_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rishabh/ros2_ws/build/pplanner_interfaces -- -j20 -l20
+Invoked command in '/home/rishabh/ros2_ws/build/pplanner_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rishabh/ros2_ws/build/pplanner_interfaces -- -j20 -l20
+Invoking command in '/home/rishabh/ros2_ws/build/pplanner_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rishabh/ros2_ws/build/pplanner_interfaces
+Invoked command in '/home/rishabh/ros2_ws/build/pplanner_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rishabh/ros2_ws/build/pplanner_interfaces

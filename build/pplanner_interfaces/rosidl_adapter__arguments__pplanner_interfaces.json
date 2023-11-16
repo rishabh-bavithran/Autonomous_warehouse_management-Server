@@ -1,0 +1,7 @@
+{
+  "package_name": "pplanner_interfaces",
+  "non_idl_tuples": [
+    "/home/rishabh/ros2_ws/src/pplanner_interfaces:msg/ArucoData.msg",
+    "/home/rishabh/ros2_ws/src/pplanner_interfaces:msg/ArucoDataset.msg"
+  ]
+}

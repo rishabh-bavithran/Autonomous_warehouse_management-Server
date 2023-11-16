@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from example_interfaces.msg import Float64MultiArray
+from pplanner_interfaces.msg import ArucoData
+from pplanner_interfaces.msg import ArucoDataset
 import cv2
 import cv2.aruco as aruco
 import numpy as np
@@ -13,8 +14,9 @@ class MyNode(Node):
         super().__init__("py_test")
         self.counter_ = 0
         self.get_logger().info("Hello ROS2")
-        self.publish_robot_data = self.create_publisher(Float64MultiArray,"robots",10)
-        self.publish_object_data = self.create_publisher(Float64MultiArray,"objects",10)
+        self.publish_robot_data = self.create_publisher(ArucoDataset,"robots",10)
+        self.publish_object_data = self.create_publisher(ArucoDataset,"objects",10)
+
         self.cap = cv2.VideoCapture(0)
         self.create_timer(0.1, self.camera_feed)
 
@@ -36,22 +38,68 @@ class MyNode(Node):
                 # Sort markers
                 even_markers, odd_markers = self.sort_markers(marker_info)
 
-                # print("Even Markers:", even_markers)
+
+                # robot_data_array = ArucoDataset()
+                # object_data_array = ArucoDataset()
+                robot_data_array = []
+                object_data_array = []
+                # while i < len(even_markers):
+                #     even_markers[i] = robot_data_array
+
+                # while j < len(even_markers):
+                #     object_data_array[j] = robot_data_array
+
+
+                i=0
+                j=0
+
+                while i < len(odd_markers):
+
+                    robot_data = ArucoData()
+                    robot_data.id_data = int(odd_markers[i][0])
+                    self.get_logger().info(str(robot_data.id_data))
+                    robot_data.x_data =  int(odd_markers[i][1])
+                    robot_data.y_data =  int(odd_markers[i][2])
+                    robot_data.orientation_data =  float(odd_markers[i][3])
+                    robot_data_array.append(robot_data)
+                    i+=1
+                rob_pub = ArucoDataset()
+                rob_pub.dataset = robot_data_array
+                self.get_logger().info(str(rob_pub))
+
+                while j < len(even_markers): 
+                    object_data = ArucoData()
+                    object_data.id_data =  int(even_markers[j][0])
+                    self.get_logger().info(str(object_data.id_data))
+                    object_data.x_data =  int(even_markers[j][1])
+                    object_data.y_data =  int(even_markers[j][2])
+                    object_data.orientation_data =  float(even_markers[j][3])
+                    object_data_array.append(object_data)
+                    j+=1
+
+                obj_pub = ArucoDataset()
+                obj_pub.dataset = object_data_array
+                self.get_logger().info(str(obj_pub))
+
+
+
+                self.publish_robot_data.publish(rob_pub)
+                self.publish_object_data.publish(obj_pub)
+
+
+
+
+
+
+                # print("Even Markers:", even_markers
                 # print("Odd Markers:", odd_markers)
+                
+                #odd_markers_float =  [[float(item) for item in sublist] for sublist in odd_markers]
+                #even_markers_float =  [[float(item) for item in sublist] for sublist in even_markers]
 
 
-                odd_markers_float =  [[float(item) for item in sublist] for sublist in odd_markers]
-                even_markers_float =  [[float(item) for item in sublist] for sublist in even_markers]
 
 
-                robot_data = Float64MultiArray()
-                object_data = Float64MultiArray()
-
-                robot_data.data = odd_markers_float
-                object_data.data = even_markers_float
-
-                self.publish_robot_data(robot_data)
-                self.publish_object_data(object_data)
 
             # Display the resulting frame
             cv2.imshow('Frame', frame)
