@@ -11,12 +11,12 @@ import numpy as np
 class MyNode(Node):
 
     def __init__(self):
-        super().__init__("py_test")
+        super().__init__("visual_feed")
         self.counter_ = 0
         self.get_logger().info("Hello ROS2")
         self.publish_robot_data = self.create_publisher(ArucoDataset,"robots",10)
         self.publish_object_data = self.create_publisher(ArucoDataset,"objects",10)
-
+                
         self.cap = cv2.VideoCapture(0)
         self.create_timer(0.1, self.camera_feed)
 

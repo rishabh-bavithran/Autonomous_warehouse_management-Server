@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "my_first_node=percepto_planner.my_first_node:main"
+            "visual_feed=percepto_planner.visual_feed:main",
+            "sorting_assigner=percepto_planner.sorting_assigner:main"
         ],
     },
 )
