@@ -4,6 +4,7 @@ from rclpy.node import Node
 
 from pplanner_interfaces.msg import ArucoDataset
 from pplanner_interfaces.msg import ArucoData
+import math
 
 class SortingAssigner(Node):
     def __init__(self):
@@ -12,9 +13,10 @@ class SortingAssigner(Node):
         self.robots_list = self.create_subscription(ArucoDataset,"robots", self.callback_robots_arucodataset, 10 )
         self.objects_list = self.create_subscription(ArucoDataset, "objects", self.calback_objects_arucodataset, 10)
         self.robots_total_count = 1
-        self.objects_total_count = 1
+        self.objects_total_count = 3
         self.robots_list_global = ArucoDataset()
         self.objects_list_global = ArucoDataset()
+        self.robots_list_latest = ArucoDataset()
         self.robots_status = []
         self.objects_status = []
         #self.robot_number = []
@@ -35,6 +37,7 @@ class SortingAssigner(Node):
 
     def callback_robots_arucodataset(self ,msg):
         #self.get_logger().info(str(msg.dataset))
+        self.robots_list_latest = msg
         if len(msg.dataset) == self.robots_total_count and self.i == 0:
             #self.get_logger().info("Robot count has been verified")
             if self.i == 0:
@@ -55,81 +58,39 @@ class SortingAssigner(Node):
                 self.get_logger().info("STARTED ASSIGNING ROBOTS TO OBJECTS")
                 if "Unpicked" in self.objects_status:
                     robot_ready_index = self.robots_status.index("Ready")
-                    object_unpicked_indices = [o for o, x in enumerate(self.robots_status) if x == "Unpicked"]
+                    object_unpicked_indices = [o for o, x in enumerate(self.objects_status) if x == "Unpicked"]
                     #object_unpicked_index = self.objects_status.index("Unpicked")
-                    self.get_logger().info(str(robot_ready_index))
+                    self.get_logger().info(str(object_unpicked_indices))
                     robot_assignment = ArucoData()
                     object_assignment = ArucoData()
-                    robot_assignment = self.robots_list_global.dataset[robot_ready_index]
-                    #object_assignment = self.objects_list_global.dataset[object_unpicked_index]
-                    #object_ready_index_tracker = 0
+                    assigned_object = ArucoData()
+
+                    robot_assignment = self.robots_list_latest.dataset[robot_ready_index] #USING CAMERA FEED DATA DIRECTLY TO GET LATEST ROBOT POSITION
                     closest_object_distance = 100000
-                    # while object_ready_index_tracker <= object_unpicked_indices:
-                    #     object_assignment = self.objects_list_global.dataset[]
 
                     for object_unpicked_index in object_unpicked_indices:
                         self.get_logger().info("FINDING CLOSEST DISTANCE")
                         object_assignment = self.objects_list_global.dataset[object_unpicked_index]
-                        distance = abs((robot_assignment.x_data - object_assignment.x_data)**2 + 
-                                       (robot_assignment.y_data - object_assignment.y_data)**2) 
+                        distance = math.sqrt(abs((robot_assignment.x_data - object_assignment.x_data)**2 + 
+                                       (robot_assignment.y_data - object_assignment.y_data)**2))
+                        self.get_logger().info("DISTANCE : " + str(distance))
 
-                        if distance < closest_object_distance: 
-                              closest_object_distance = distance
-                              final_object_index = object_unpicked_index
+                        if distance < closest_object_distance:
+                            self.get_logger().info("Closest Distance Being Updated") 
+                            closest_object_distance = distance
+                            final_object_index = object_unpicked_index
+                            #assigned_object = object_assignment
 
-                        assigned_object = self.objects_list_global[final_object_index]
-                        self.get_logger().info(str(assigned_object))
+                    assigned_object = self.objects_list_global.dataset[final_object_index]
+                    self.get_logger().info(str(assigned_object))
 
                     
                     self.get_logger().info("Assignment has been completed")
-                    #self.get_logger().info("Robot ID " + str(robot_assignment.id_data) + "has been assigned to Object with ID" + str(assigned_object.id_data))
-
-                        
-                    
-
-                        
-
-
-
-            # status_track =len(self.robots_list_global.dataset)
-            # status_track_variable = 0 
-            # while status_track_variable < status_track:
-            #     self.robots_status.append("Ready")
-
-
-            
-
-            # robot = ArucoData()
-            # robot.id_data = self.robots_list_global.dataset
-            # self.get_logger().info("ID DATA that has been saved : ", str(robot.id_data))
-
-            #self.get_logger().info(self.robots_status[0])
-            
-    # def robots_initial_state_setup(self, robot_data):
-        
-    #     self.get_logger().info(str(robot_data.dataset))
-    #     #self.get_logger().info("New function")
-    #     robot = ArucoData()
-
-    #     i = 0
-
-    #     while i<len(robot_data):
-    #         robot = robot_data[i].dataset
-    #         robot.status = "Ready"
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
+                    self.get_logger().info("Robot with ID " + str(robot_assignment.id_data) + 
+                                           " has been assigned to Object with ID " + str(assigned_object.id_data))
+                    self.objects_status[final_object_index] = "RFP" #Ready For Pickup
+                    self.get_logger().info("UPDATED OBJECT STATUS : " + str(self.objects_status))
+                    self.robots_status[robot_ready_index] = "Occupied"
 
 def main(args=None):
     rclpy.init(args=args)

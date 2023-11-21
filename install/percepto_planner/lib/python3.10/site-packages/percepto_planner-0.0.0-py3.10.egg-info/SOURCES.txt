@@ -11,6 +11,7 @@ setup.py
 percepto_planner/__init__.py
 percepto_planner/camera_testing_1.py
 percepto_planner/camera_testing_2.py
+percepto_planner/enumeratetest.py
 percepto_planner/publishtypetest.py
 percepto_planner/sorting_assigner.py
 percepto_planner/visual_feed.py

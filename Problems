@@ -1,0 +1,11 @@
+2 Problems to take care of
+ 1) Not going inside if condition to update the second closest object (Find out Reason)
+ 2) When a robot moves and is ready for next pick up, its location is bound to change, so
+ 	x_data and y_data from the global list does not make sense, need to find a better method
+ 	
+ 	
+ 	
+Earlier Problems: 
+
+Frames keeps getting updated, so we had to once store all the different objects and robots in the frame as soon as the count is verified, and never go again, so that it is easier to keep track since some of the frames might not detect some of the arucos at some instant which will be a huge problem later on. 
+
