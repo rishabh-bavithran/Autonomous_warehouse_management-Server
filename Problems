@@ -2,7 +2,7 @@
  1) Not going inside if condition to update the second closest object (Find out Reason)
  2) When a robot moves and is ready for next pick up, its location is bound to change, so
  	x_data and y_data from the global list does not make sense, need to find a better method
- 	
+ 3) Used a latest robot list, with latest positions which rised another problem that instantaneous frames might have order of robots read differently than it was assigned to the robot global list, so we have to change it such that the robot order is the same as it was in the global list, otherwise, the same robot will get assigned again since the list is the same 	
  	
  	
 Earlier Problems: 

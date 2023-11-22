@@ -12,7 +12,7 @@ class SortingAssigner(Node):
         self.get_logger().info("Sorting Assigner Node has started")
         self.robots_list = self.create_subscription(ArucoDataset,"robots", self.callback_robots_arucodataset, 10 )
         self.objects_list = self.create_subscription(ArucoDataset, "objects", self.calback_objects_arucodataset, 10)
-        self.robots_total_count = 1
+        self.robots_total_count = 2
         self.objects_total_count = 3
         self.robots_list_global = ArucoDataset()
         self.objects_list_global = ArucoDataset()
@@ -23,6 +23,7 @@ class SortingAssigner(Node):
         self.i = 0
         self.j = 0 
         self.assigning_timer = self.create_timer(0.5, self.assigning_timer_callback)
+        
 
     def calback_objects_arucodataset(self,msg):
         if len(msg.dataset) == self.objects_total_count and self.j == 0:
@@ -37,7 +38,24 @@ class SortingAssigner(Node):
 
     def callback_robots_arucodataset(self ,msg):
         #self.get_logger().info(str(msg.dataset))
-        self.robots_list_latest = msg
+        if self.i == 1 and len(msg.dataset) == self.robots_total_count:
+            self.robots_list_latest = msg
+            iter1 = 0 
+            iter2 = 0 
+            temp = ArucoData()
+            while iter1 < self.robots_total_count:
+                while iter2 < self.robots_total_count:
+                    if self.robots_list_global.dataset[iter1].id_data == self.robots_list_global.dataset[iter2].id_data:
+                        temp = self.robots_list_latest.dataset[iter1]
+                        self.robots_list_latest.dataset[iter1] = self.robots_list_latest.dataset[iter2]
+                        self.robots_list_latest.dataset[iter2] = temp
+                        break
+                    
+                    iter2 += 1
+
+                iter1 += 1
+
+
         if len(msg.dataset) == self.robots_total_count and self.i == 0:
             #self.get_logger().info("Robot count has been verified")
             if self.i == 0:
@@ -91,6 +109,8 @@ class SortingAssigner(Node):
                     self.objects_status[final_object_index] = "RFP" #Ready For Pickup
                     self.get_logger().info("UPDATED OBJECT STATUS : " + str(self.objects_status))
                     self.robots_status[robot_ready_index] = "Occupied"
+                    self.get_logger().info("ROBOTS STATUS : " + str(self.robots_status))
+                    
 
 def main(args=None):
     rclpy.init(args=args)
