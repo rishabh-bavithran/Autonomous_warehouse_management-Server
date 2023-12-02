@@ -1,9 +1,14 @@
+import cv2
 
-# objects_status = ["Picked" "Picked" "Picked" "Unpicked" "Unpicked" "Picked" "Unpicked"]
+# Initialize the camera (0 is the default camera)
+cap = cv2.VideoCapture(4)
 
-# object_unpicked_indices = [o for o, x in enumerate(objects_status) if x == "Unpicked"]
+# Get the default resolutions
+width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
 
-# print(object_unpicked_indices)
-robots_status = ["NR", "Ready", "NR", "NR" ,"Ready"]
-robot_ready_index = robots_status.index("Ready")
-print(robot_ready_index)
+# Print the default camera resolution
+print(f"Default Resolution: {width} x {height}")
+
+# Release the camera
+cap.release()

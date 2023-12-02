@@ -3,6 +3,7 @@ import rclpy
 from rclpy.node import Node
 from pplanner_interfaces.msg import ArucoData
 from pplanner_interfaces.msg import ArucoDataset
+#from example_interfaces.msg import Float64
 import cv2
 import cv2.aruco as aruco
 import numpy as np
@@ -16,13 +17,19 @@ class MyNode(Node):
         self.get_logger().info("Hello ROS2")
         self.publish_robot_data = self.create_publisher(ArucoDataset,"robots",10)
         self.publish_object_data = self.create_publisher(ArucoDataset,"objects",10)
-                
         self.cap = cv2.VideoCapture(0)
         self.create_timer(0.1, self.camera_feed)
+        self.width_frame = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+        self.height_frame = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+
+        self.get_logger().info("WIDTH AND HEIGHT " + str(type(self.width_frame)))    
+        self.get_logger().info("wIDTH : " + str(self.width_frame))
+        self.get_logger().info("HEIGHT : " + str(self.height_frame))
 
     def camera_feed(self):
         # Capture frame-by-frame
         ret, frame = self.cap.read()
+
         if ret:
             
             # Detect ArUco markers
