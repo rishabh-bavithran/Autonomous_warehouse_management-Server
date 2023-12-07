@@ -14,6 +14,7 @@ percepto_planner/astar_rectangle.py
 percepto_planner/camera_testing_1.py
 percepto_planner/camera_testing_2.py
 percepto_planner/enumeratetest.py
+percepto_planner/int64multiarraytest.py
 percepto_planner/path_planner.py
 percepto_planner/publishtypetest.py
 percepto_planner/sorting_assigner.py

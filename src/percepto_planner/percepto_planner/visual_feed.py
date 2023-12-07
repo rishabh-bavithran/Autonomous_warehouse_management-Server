@@ -21,6 +21,7 @@ class MyNode(Node):
         self.create_timer(0.1, self.camera_feed)
         self.width_frame = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
         self.height_frame = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        self.gap = 40
 
         self.get_logger().info("WIDTH AND HEIGHT " + str(type(self.width_frame)))    
         self.get_logger().info("wIDTH : " + str(self.width_frame))
@@ -65,8 +66,8 @@ class MyNode(Node):
                     robot_data = ArucoData()
                     robot_data.id_data = int(odd_markers[i][0])
                     self.get_logger().info(str(robot_data.id_data))
-                    robot_data.x_data =  int(odd_markers[i][1])
-                    robot_data.y_data =  int(odd_markers[i][2])
+                    robot_data.x_data =  int(odd_markers[i][1]) //self.gap
+                    robot_data.y_data =  int(odd_markers[i][2]) //self.gap
                     robot_data.orientation_data =  float(odd_markers[i][3])
                     robot_data_array.append(robot_data)
                     i+=1
@@ -78,8 +79,8 @@ class MyNode(Node):
                     object_data = ArucoData()
                     object_data.id_data =  int(even_markers[j][0])
                     self.get_logger().info(str(object_data.id_data))
-                    object_data.x_data =  int(even_markers[j][1])
-                    object_data.y_data =  int(even_markers[j][2])
+                    object_data.x_data =  int(even_markers[j][1]) // self.gap
+                    object_data.y_data =  int(even_markers[j][2]) // self.gap
                     object_data.orientation_data =  float(even_markers[j][3])
                     object_data_array.append(object_data)
                     j+=1

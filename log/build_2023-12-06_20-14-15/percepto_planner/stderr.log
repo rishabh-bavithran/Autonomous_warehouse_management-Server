@@ -1,0 +1,5 @@
+  File "/home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/path_planner.py", line 44
+    			self.get_logger().info("Robot : " + str(robot_id) + "  Target : " + "("  
+    			                       ^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+

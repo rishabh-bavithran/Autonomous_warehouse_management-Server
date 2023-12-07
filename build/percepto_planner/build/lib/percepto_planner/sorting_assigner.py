@@ -12,18 +12,29 @@ class SortingAssigner(Node):
         self.get_logger().info("Sorting Assigner Node has started")
         self.robots_list = self.create_subscription(ArucoDataset,"robots", self.callback_robots_arucodataset, 10 )
         self.objects_list = self.create_subscription(ArucoDataset, "objects", self.calback_objects_arucodataset, 10)
-        self.robots_total_count = 2
+        self.robots_total_count = 3
         self.objects_total_count = 3
         self.robots_list_global = ArucoDataset()
         self.objects_list_global = ArucoDataset()
         self.robots_list_latest = ArucoDataset()
         self.robots_status = []
         self.objects_status = []
+        self.path_planner_data_global = []
+        self.path_planner_pub_data = ArucoDataset()
+        
         #self.robot_number = []
         self.i = 0
         self.j = 0 
         self.assigning_timer = self.create_timer(0.5, self.assigning_timer_callback)
+        self.publish_motion_planner_data = self.create_timer(0.5, self.publishing_coordinates_fmp) #FOR MOTION PLANNER - FMP
+        self.path_planner_pub = self.create_publisher(ArucoDataset, "path_planning_data", 10)
         
+    def publishing_coordinates_fmp(self):
+        if self.path_planner_data_global:
+            self.path_planner_pub_data.dataset = self.path_planner_data_global
+            self.path_planner_pub.publish(self.path_planner_pub_data)
+            
+            
 
     def calback_objects_arucodataset(self,msg):
         if len(msg.dataset) == self.objects_total_count and self.j == 0:
@@ -45,7 +56,7 @@ class SortingAssigner(Node):
             temp = ArucoData()
             while iter1 < self.robots_total_count:
                 while iter2 < self.robots_total_count:
-                    if self.robots_list_global.dataset[iter1].id_data == self.robots_list_global.dataset[iter2].id_data:
+                    if self.robots_list_global.dataset[iter1].id_data == self.robots_list_latest.dataset[iter2].id_data:
                         temp = self.robots_list_latest.dataset[iter1]
                         self.robots_list_latest.dataset[iter1] = self.robots_list_latest.dataset[iter2]
                         self.robots_list_latest.dataset[iter2] = temp
@@ -60,6 +71,7 @@ class SortingAssigner(Node):
             #self.get_logger().info("Robot count has been verified")
             if self.i == 0:
                 self.robots_list_global = msg  
+                self.robots_list_latest = self.robots_list_global
                 robot_status_track = 0
                 while robot_status_track < self.robots_total_count:
                     self.robots_status.append("Ready") 
@@ -110,7 +122,14 @@ class SortingAssigner(Node):
                     self.get_logger().info("UPDATED OBJECT STATUS : " + str(self.objects_status))
                     self.robots_status[robot_ready_index] = "Occupied"
                     self.get_logger().info("ROBOTS STATUS : " + str(self.robots_status))
+                    path_planner_data = ArucoData()
+                    path_planner_data.id_data = robot_assignment.id_data 
+                    path_planner_data.x_data = assigned_object.x_data 
+                    path_planner_data.y_data = assigned_object.y_data
                     
+
+                    self.path_planner_data_global.append(path_planner_data)
+
 
 def main(args=None):
     rclpy.init(args=args)

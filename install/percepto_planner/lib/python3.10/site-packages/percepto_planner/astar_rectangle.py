@@ -2,8 +2,8 @@ import pygame
 import math
 from queue import PriorityQueue
 
-WIDTH = 640
-HEIGHT = 360
+WIDTH = 2560
+HEIGHT = 1440
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("A* Path Finding Algorithm")
 
@@ -22,8 +22,8 @@ class Spot:
 	def __init__(self, row, col, width, total_rows, total_cols):
 		self.row = row
 		self.col = col
-		self.x = row * width
-		self.y = col * width
+		self.x = col * width
+		self.y = row * width
 		self.color = WHITE
 		self.neighbors = []
 		self.width = width
@@ -74,29 +74,48 @@ class Spot:
 
 	def update_neighbors(self, grid):
 		self.neighbors = []
-		# if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # DOWN
-		# 	self.neighbors.append(grid[self.row + 1][self.col])
-
-		# if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # UP
-		# 	self.neighbors.append(grid[self.row - 1][self.col])
-
-		# if self.col < self.total_cols - 1 and not grid[self.row][self.col + 1].is_barrier(): # RIGHT
-		# 	self.neighbors.append(grid[self.row][self.col + 1])
-
-		# if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # LEFT
-		# 	self.neighbors.append(grid[self.row][self.col - 1])
-
-		if self.col < self.total_cols - 1 and not grid[self.row][self.col + 1].is_barrier(): #DOWN
-			self.neighbors.append(grid[self.row][self.col + 1])
-
-		if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # UP
-			self.neighbors.append(grid[self.row][self.col - 1])
-
-		if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # RIGHT
+		if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # DOWN
 			self.neighbors.append(grid[self.row + 1][self.col])
 
-		if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # LEFT
+		if (self.row < self.total_rows - 1 and self.col < self.total_cols - 1) and not grid[self.row+1][self.col+1].is_barrier():#DOWN RIGHT CORNER 
+	
+			self.neighbors.append(grid[self.row+1][self.col+1])
+
+		if (self.row < self.total_rows - 1 and self.col > 0) and not grid[self.row + 1][self.col - 1].is_barrier(): #DOWN LEFT CORNER 
+			self.neighbors.append(grid[self.row + 1][self.col - 1])
+
+		if (self.col < self.total_cols - 1 and self.row > 0) and not grid[self.row - 1][self.col + 1].is_barrier():#RIGHT UPPER CORNER 
+			self.neighbors.append(grid[self.row - 1][self.col + 1])
+
+		if (self.col > 0 and self.row > 0) and not grid[self.row - 1][self.col - 1].is_barrier(): #LEFT UPPER CORNER
+			self.neighbors.append(grid[self.row - 1][self.col - 1])
+
+		if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # UP
 			self.neighbors.append(grid[self.row - 1][self.col])
+
+
+			
+		if self.col < self.total_cols - 1 and not grid[self.row][self.col + 1].is_barrier(): # RIGHT
+			self.neighbors.append(grid[self.row][self.col + 1])
+
+		if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # LEFT
+			self.neighbors.append(grid[self.row][self.col - 1])
+
+		# if self.col < self.total_cols - 1 and not grid[self.row][self.col + 1].is_barrier(): #DOWN
+		# 	print("Checking Down")
+		# 	self.neighbors.append(grid[self.row][self.col + 1])
+
+		# if self.col > 0 and not grid[self.row][self.col - 1].is_barrier(): # UP
+		# 	print("Checking Up")
+		# 	self.neighbors.append(grid[self.row][self.col - 1])
+
+		# if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier(): # RIGHT
+		# 	print("Checking Right")
+		# 	self.neighbors.append(grid[self.row + 1][self.col])
+
+		# if self.row > 0 and not grid[self.row - 1][self.col].is_barrier(): # LEFT
+		# 	print("Checking Left")
+		# 	self.neighbors.append(grid[self.row - 1][self.col])
 
 
 	def __lt__(self, other):
@@ -106,8 +125,8 @@ class Spot:
 def h(p1, p2):
 	x1, y1 = p1
 	x2, y2 = p2
-	return abs(x1 - x2) + abs(y1 - y2)
-
+	#return abs(x1 - x2) + abs(y1 - y2)
+	return math.sqrt((abs(x1 - x2))**2 + (abs(y1 - y2))**2)
 
 def reconstruct_path(came_from, current, draw):
 	while current in came_from:
@@ -165,9 +184,11 @@ def algorithm(draw, grid, start, end):
 def make_grid(rows, cols, height):
 	grid = []
 	gap = height // rows
-	for i in range(cols):
+	for i in range(rows):
 		grid.append([])
-		for j in range(rows):
+		print("Doing ROWS")
+		for j in range(cols):
+			print("DOing Columns" , j)
 			spot = Spot(i, j, gap, rows, cols)
 			grid[i].append(spot)
 
@@ -197,19 +218,20 @@ def get_clicked_pos(pos, rows, width , height):
 	gap = height // rows
 	x, y = pos
 	print(x, y)
-	row = x // gap
+	row = y // gap
+	col = x // gap
+
 	print("ROW : ", row)
-	col = y // gap
 	print("COL : ", col)
 
 	return row, col
 
 
 def main(win, width , height):
-	ROWS = 9
-	COLUMNS = 16
+	ROWS = 72
+	COLUMNS = 128
 	grid = make_grid(ROWS, COLUMNS, height)
-
+	#print(grid)
 	start = None
 	end = None
 
@@ -238,7 +260,7 @@ def main(win, width , height):
 
 			elif pygame.mouse.get_pressed()[2]: # RIGHT
 				pos = pygame.mouse.get_pos()
-				row, col = get_clicked_pos(pos, ROWS, width)
+				row, col = get_clicked_pos(pos, ROWS, width, height)
 				spot = grid[row][col]
 				spot.reset()
 				if spot == start:
@@ -249,8 +271,12 @@ def main(win, width , height):
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_SPACE and start and end:
 					for row in grid:
+						print(row)
 						for spot in row:
+							a,b =spot.get_pos()
+							print(a,b)
 							spot.update_neighbors(grid)
+
 
 					algorithm(lambda: draw(win, grid, ROWS, COLUMNS, width, height), grid, start, end)
 
