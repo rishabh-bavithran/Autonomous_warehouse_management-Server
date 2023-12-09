@@ -30,12 +30,11 @@ class SortingAssigner(Node):
         self.path_planner_pub = self.create_publisher(ArucoDataset, "path_planning_data", 10)
         
     def publishing_coordinates_fmp(self):
-        if self.path_planner_data_global:
+        if len(self.path_planner_data_global) == self.robots_total_count :
             self.path_planner_pub_data.dataset = self.path_planner_data_global
             self.path_planner_pub.publish(self.path_planner_pub_data)
             
             
-
     def calback_objects_arucodataset(self,msg):
         if len(msg.dataset) == self.objects_total_count and self.j == 0:
             #self.get_logger().info("Object count has been verified")
@@ -128,7 +127,8 @@ class SortingAssigner(Node):
                     path_planner_data.y_data = assigned_object.y_data
                     
 
-                    self.path_planner_data_global.append(path_planner_data)
+                    self.path_planner_data_global.append(path_planner_data) 
+                    
 
 
 def main(args=None):

@@ -18,6 +18,7 @@ percepto_planner/int64multiarraytest.py
 percepto_planner/path_planner.py
 percepto_planner/publishtypetest.py
 percepto_planner/sorting_assigner.py
+percepto_planner/timerthreadtest.py
 percepto_planner/visual_feed.py
 resource/percepto_planner
 test/test_copyright.py

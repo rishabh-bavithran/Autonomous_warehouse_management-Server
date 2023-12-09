@@ -1,14 +1,28 @@
-import cv2
+total_robots = 5
+robots_list = []
 
-# Initialize the camera (0 is the default camera)
-cap = cv2.VideoCapture(4)
+for i in range(total_robots):
+    print(i)
+    robots = {'robot' : i+1 , 'Robot_tag' : None, 'status' : "Unplanned"}
+    robots_list.append(robots)
 
-# Get the default resolutions
-width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+print(robots_list[2])
 
-# Print the default camera resolution
-print(f"Default Resolution: {width} x {height}")
+print(robots_list[2].get('robot'))
+robots_list[2]['Target'] = (45,13)
+print(robots_list[2])
 
-# Release the camera
-cap.release()
+del robots_list[2]['Target']
+print(robots_list[2])
+# print(robots_list[2].get('Target'))
+
+robots_list[4]['status'] = "Planned"
+
+# #print(robots)
+
+for i in range(total_robots):
+    robot = robots_list[i]
+
+    if robot.get('status') == "Planned":
+        print(robot)
+        break

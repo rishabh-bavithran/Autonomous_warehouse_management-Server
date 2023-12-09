@@ -24,32 +24,47 @@ TURQUOISE = (64, 224, 208)
 
 from pplanner_interfaces.msg import ArucoDataset
 from pplanner_interfaces.msg import ArucoData
+
 class PathPlanning(Node):
 	def __init__(self):
 		super().__init__("path_planner")
 		self.get_logger().info("Path Planning Node has started")
-		self.path_planning_list = self.create_subscription(ArucoDataset,"path_planning_data", self.callback_path_planning_fn, 10)
+		self.total_robot_count = 3
+		self.robots_list = []
+		for iteration in range(self.total_robot_count):
+			robot = {'Robot' : iteration+1, 'Status' : 'Unplanned'}
+			self.robots_list.append(robot)
+
+
+		self.path_planning_list = self.create_subscription(ArucoDataset,
+													 "path_planning_data",self.callback_path_planning_fn, 10)
 		
+
+
+
 	def callback_path_planning_fn(self, msg):
 		path_planning_len = len(msg.dataset)
-		#path_planning_set = ArucoData()
+		
+		path_planning_set = ArucoData()
 		i = 0
-		while i < path_planning_len:
+		while i < self.total_robot_count:
 			path_planning_set = ArucoData()
 			path_planning_set = msg.dataset[i]
-
 			robot_id = path_planning_set.id_data
+			self.robots_list[i]['Robot_ID'] = robot_id
 			target_row_grid = path_planning_set.x_data
 			target_column_grid = path_planning_set.y_data
-			self.get_logger().info("Robot : " + str(robot_id) + "  Target : " + "("  +
-						  str(target_row_grid)+ " , " +str(target_column_grid) + ")")
+			self.robots_list[i]['Target'] = (target_row_grid, target_column_grid)
+			# self.get_logger().info("Robot : " + str(robot_id) + "  Target : " + "("  +
+			# 			  str(target_row_grid)+ " , " +str(target_column_grid) + ")")
+			self.get_logger().info(str(self.robots_list[i]))
 			
 			i+=1
 
-			
+		
+
 		
 	
-
 class Spot:
 	def __init__(self, row, col, width, total_rows, total_cols):
 		self.row = row

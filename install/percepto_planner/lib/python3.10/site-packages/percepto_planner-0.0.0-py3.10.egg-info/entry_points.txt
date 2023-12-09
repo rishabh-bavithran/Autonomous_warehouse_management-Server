@@ -1,5 +1,6 @@
 [console_scripts]
 path_planner = percepto_planner.path_planner:main
 sorting_assigner = percepto_planner.sorting_assigner:main
+timerthreadtest = percepto_planner.timerthreadtest:main
 visual_feed = percepto_planner.visual_feed:main
 
