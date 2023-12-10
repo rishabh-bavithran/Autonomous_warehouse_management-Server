@@ -6,10 +6,9 @@ import pygame
 import math
 from queue import PriorityQueue
 
-WIDTH = 2560
-HEIGHT = 1440
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("A* Path Finding Algorithm")
+
+# WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+# pygame.display.set_caption("A* Path Finding Algorithm")
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
@@ -29,22 +28,86 @@ class PathPlanning(Node):
 	def __init__(self):
 		super().__init__("path_planner")
 		self.get_logger().info("Path Planning Node has started")
-		self.total_robot_count = 3
-		self.robots_list = []
+		self.total_robot_count = 1
+		self.ROWS = 18
+		self.COLUMNS = 32
+		self.WIDTH = 1280
+		self.HEIGHT = 720
+		self.robots_target_list = []
+		self.robots_list = ArucoDataset()
+		self.last_end_row = None
+		self.last_end_column = None
+		# self.last_start = None
+		# self.last_end =  None
 		self.initial_robots_list_flag = 0
 		for iteration in range(self.total_robot_count):
 			robot = {'Robot' : iteration+1, 'Status' : 'Unplanned'}
-			self.robots_list.append(robot)
+			self.robots_target_list.append(robot)
+
+		self.robots_list_position = self.create_subscription(ArucoDataset, "robots" , self.callback_latest_robot_pos, 10)
 
 
-		self.path_planning_list = self.create_subscription(ArucoDataset,
-													 "path_planning_data",self.callback_path_planning_fn, 10)
+		self.robot_status_list = self.create_subscription(ArucoDataset,
+													 "path_planning_data",self.callback_robot_status_list_fn, 10)
 		
+		self.path_planning_timing = self.create_timer(0.5, self.callback_path_planning_timing)
+
+	def callback_latest_robot_pos(self, msg):
+		if self.total_robot_count == len(msg.dataset):
+			self.robots_list = msg
+
+	
+	def callback_path_planning_timing(self):
+		if self.robots_target_list:
+			for i in range(self.total_robot_count):
+				robot = self.robots_target_list[i]
+				if robot.get('Target') != None: 
+
+					end_row, end_column = robot.get('Target')
+					if (end_row != self.last_end_row) or (end_column != self.last_end_column):
+						WIN = pygame.display.set_mode((self.WIDTH, self.HEIGHT)) 
+						pygame.display.set_caption("A* Path Finding Algorithm")
+						self.last_end_row = end_row 
+						self.last_end_column = end_column
+
+						robot_getting_pos = ArucoData()
+						for i in range(self.total_robot_count):
+							robot_getting_pos = self.robots_list.dataset[i]
+							if robot_getting_pos.id_data == robot.get('Robot_ID'):
+								robot_row_pos = robot_getting_pos.y_data 
+								robot_column_pos = robot_getting_pos.x_data 
+								break
+
+						self.path_planner_fn(WIN, self.WIDTH, self.HEIGHT, end_row, end_column, robot_row_pos, robot_column_pos)
+						
+
+	
+	def path_planner_fn(self, win, width, height, end_row, end_column, robot_row_pos, robot_column_pos):
+		grid = make_grid(self.ROWS, self.COLUMNS, height)
+		# robot_pos = start
+		destination_pos = grid[end_row][end_column] 
+		destination_pos.make_end()
+
+		robot_pos = grid[robot_row_pos][robot_column_pos]
+		robot_pos.make_start()
+
+		for row in grid:
+			#print(row)
+			for spot in row:
+				#a,b =spot.get_pos()
+				#print(a,b)
+				spot.update_neighbors(grid)
+				
+				
+		
+		algorithm(lambda: draw(win, grid, self.ROWS, self.COLUMNS, width, height), grid, robot_pos, destination_pos)
 
 
 
-	def callback_path_planning_fn(self, msg):
-		path_planning_len = len(msg.dataset)
+
+
+	def callback_robot_status_list_fn(self, msg):
+		# path_planning_len = len(msg.dataset)
 		
 		path_planning_set = ArucoData()
 		if self.initial_robots_list_flag == 0:		
@@ -52,18 +115,17 @@ class PathPlanning(Node):
 				path_planning_set = ArucoData()
 				path_planning_set = msg.dataset[self.initial_robots_list_flag]
 				robot_id = path_planning_set.id_data
-				self.robots_list[self.initial_robots_list_flag]['Robot_ID'] = robot_id
-				target_row_grid = path_planning_set.x_data
-				target_column_grid = path_planning_set.y_data
-				self.robots_list[self.initial_robots_list_flag]['Target'] = (target_row_grid, target_column_grid)
+				self.robots_target_list[self.initial_robots_list_flag]['Robot_ID'] = robot_id
+				target_column_grid = path_planning_set.x_data
+				target_row_grid = path_planning_set.y_data
+				self.robots_target_list[self.initial_robots_list_flag]['Target'] = (target_row_grid, target_column_grid)
 				# self.get_logger().info("Robot : " + str(robot_id) + "  Target : " + "("  +
 				# 			  str(target_row_grid)+ " , " +str(target_column_grid) + ")")
-				self.get_logger().info(str(self.robots_list[self.initial_robots_list_flag]))
+				self.get_logger().info(str(self.robots_target_list[self.initial_robots_list_flag]))
 				
 				self.initial_robots_list_flag+=1
 
 		
-
 		
 	
 class Spot:

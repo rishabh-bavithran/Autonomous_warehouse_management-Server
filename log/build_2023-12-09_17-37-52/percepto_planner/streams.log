@@ -1,0 +1,30 @@
+[0.408s] Invoking command in '/home/rishabh/ros2_ws/src/percepto_planner': PYTHONPATH=/home/rishabh/ros2_ws/build/percepto_planner/prefix_override:/home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/percepto_planner build --build-base /home/rishabh/ros2_ws/build/percepto_planner/build install --record /home/rishabh/ros2_ws/build/percepto_planner/install.log --single-version-externally-managed
+[0.523s] running egg_info
+[0.523s] writing ../../build/percepto_planner/percepto_planner.egg-info/PKG-INFO
+[0.523s] writing dependency_links to ../../build/percepto_planner/percepto_planner.egg-info/dependency_links.txt
+[0.523s] writing entry points to ../../build/percepto_planner/percepto_planner.egg-info/entry_points.txt
+[0.524s] writing requirements to ../../build/percepto_planner/percepto_planner.egg-info/requires.txt
+[0.524s] writing top-level names to ../../build/percepto_planner/percepto_planner.egg-info/top_level.txt
+[0.524s] reading manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+[0.525s] writing manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+[0.525s] running build
+[0.525s] running build_py
+[0.526s] copying percepto_planner/astar_rectangle.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+[0.526s] copying percepto_planner/path_planner.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+[0.526s] running install
+[0.526s] running install_lib
+[0.527s] copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/astar_rectangle.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+[0.527s] copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/path_planner.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+[0.527s] byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/astar_rectangle.py to astar_rectangle.cpython-310.pyc
+[0.528s] byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/path_planner.py to path_planner.cpython-310.pyc
+[0.529s] running install_data
+[0.530s] running install_egg_info
+[0.531s] removing '/home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner-0.0.0-py3.10.egg-info' (and everything under it)
+[0.531s] Copying ../../build/percepto_planner/percepto_planner.egg-info to /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner-0.0.0-py3.10.egg-info
+[0.531s] running install_scripts
+[0.541s] Installing path_planner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+[0.541s] Installing sorting_assigner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+[0.541s] Installing timerthreadtest script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+[0.541s] Installing visual_feed script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+[0.541s] writing list of installed files to '/home/rishabh/ros2_ws/build/percepto_planner/install.log'
+[0.553s] Invoked command in '/home/rishabh/ros2_ws/src/percepto_planner' returned '0': PYTHONPATH=/home/rishabh/ros2_ws/build/percepto_planner/prefix_override:/home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/percepto_planner build --build-base /home/rishabh/ros2_ws/build/percepto_planner/build install --record /home/rishabh/ros2_ws/build/percepto_planner/install.log --single-version-externally-managed

@@ -12,8 +12,8 @@ class SortingAssigner(Node):
         self.get_logger().info("Sorting Assigner Node has started")
         self.robots_list = self.create_subscription(ArucoDataset,"robots", self.callback_robots_arucodataset, 10 )
         self.objects_list = self.create_subscription(ArucoDataset, "objects", self.calback_objects_arucodataset, 10)
-        self.robots_total_count = 3
-        self.objects_total_count = 3
+        self.robots_total_count = 1
+        self.objects_total_count = 1
         self.robots_list_global = ArucoDataset()
         self.objects_list_global = ArucoDataset()
         self.robots_list_latest = ArucoDataset()

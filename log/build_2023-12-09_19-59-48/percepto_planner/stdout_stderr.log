@@ -1,0 +1,25 @@
+running egg_info
+writing ../../build/percepto_planner/percepto_planner.egg-info/PKG-INFO
+writing dependency_links to ../../build/percepto_planner/percepto_planner.egg-info/dependency_links.txt
+writing entry points to ../../build/percepto_planner/percepto_planner.egg-info/entry_points.txt
+writing requirements to ../../build/percepto_planner/percepto_planner.egg-info/requires.txt
+writing top-level names to ../../build/percepto_planner/percepto_planner.egg-info/top_level.txt
+reading manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+writing manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+running build
+running build_py
+copying percepto_planner/sorting_assigner.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+running install
+running install_lib
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/sorting_assigner.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/sorting_assigner.py to sorting_assigner.cpython-310.pyc
+running install_data
+running install_egg_info
+removing '/home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/percepto_planner/percepto_planner.egg-info to /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner-0.0.0-py3.10.egg-info
+running install_scripts
+Installing path_planner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing sorting_assigner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing timerthreadtest script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing visual_feed script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+writing list of installed files to '/home/rishabh/ros2_ws/build/percepto_planner/install.log'
