@@ -364,11 +364,27 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces/msg/PathGrid.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces/msg/PathGridset.idl")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/src/pplanner_interfaces/msg/ArucoData.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/src/pplanner_interfaces/msg/ArucoDataset.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/src/pplanner_interfaces/msg/PathGrid.msg")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/pplanner_interfaces/msg" TYPE FILE FILES "/home/rishabh/ros2_ws/src/pplanner_interfaces/msg/PathGridset.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

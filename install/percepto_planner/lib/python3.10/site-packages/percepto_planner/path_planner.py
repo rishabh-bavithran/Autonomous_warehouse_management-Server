@@ -21,8 +21,13 @@ ORANGE = (255, 165 ,0)
 GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
 
+path_grid = []
+path_grid_len = 100000
+
 from pplanner_interfaces.msg import ArucoDataset
 from pplanner_interfaces.msg import ArucoData
+from pplanner_interfaces.msg import PathGrid
+from pplanner_interfaces.msg import PathGridset
 
 class PathPlanning(Node):
 	def __init__(self):
@@ -37,6 +42,7 @@ class PathPlanning(Node):
 		self.robots_list = ArucoDataset()
 		self.last_end_row = None
 		self.last_end_column = None
+		#self.path_grid = []
 		# self.last_start = None
 		# self.last_end =  None
 		self.initial_robots_list_flag = 0
@@ -51,6 +57,20 @@ class PathPlanning(Node):
 													 "path_planning_data",self.callback_robot_status_list_fn, 10)
 		
 		self.path_planning_timing = self.create_timer(0.5, self.callback_path_planning_timing)
+		self.path_grid_pub = self.create_publisher(PathGridset, "path" , 10)
+		self.path_grid_pub_timer = self.create_timer(1,  self.path_grid_pub_fn )
+
+	def path_grid_pub_fn(self):
+		global path_grid_len
+		global path_grid
+		#self.get_logger().info("Timer Test")
+		self.get_logger().info("path_grid = " + str(len(path_grid)))
+		self.get_logger().info("len path grid var = " + str(path_grid_len))
+		if path_grid_len == len(path_grid):
+			path_grid_list = PathGridset()
+			path_grid_list.path = path_grid
+			self.get_logger().info("Path is Publishing")
+			self.path_grid_pub.publish(path_grid_list)
 
 	def callback_latest_robot_pos(self, msg):
 		if self.total_robot_count == len(msg.dataset):
@@ -221,10 +241,23 @@ def h(p1, p2):
 	return math.sqrt((abs(x1 - x2))**2 + (abs(y1 - y2))**2)
 
 def reconstruct_path(came_from, current, draw):
+	global path_grid_len
+	global path_grid
 	while current in came_from:
 		current = came_from[current]
+		row, col = current.get_pos()
+		path_coordinate = PathGrid()
+		path_coordinate.row = row 
+		path_coordinate.col = col 
+		path_grid.append(path_coordinate)
 		current.make_path()
 		draw()
+	path_grid.reverse()
+	path_grid_len = len(path_grid)
+	#print("path_grid = ", path_grid)
+	#print("")
+	#path_obj = PathPlanning()
+	#path_obj.path_grid_pub.publish(path_grid)
 
 
 def algorithm(draw, grid, start, end):
@@ -278,9 +311,9 @@ def make_grid(rows, cols, height):
 	gap = height // rows
 	for i in range(rows):
 		grid.append([])
-		print("Doing ROWS")
+		#print("Doing ROWS")
 		for j in range(cols):
-			print("DOing Columns" , j)
+			#print("DOing Columns" , j)
 			spot = Spot(i, j, gap, rows, cols)
 			grid[i].append(spot)
 
@@ -309,12 +342,12 @@ def draw(win, grid, rows, cols,  width, height):
 def get_clicked_pos(pos, rows, width , height):
 	gap = height // rows
 	x, y = pos
-	print(x, y)
+	#print(x, y)
 	row = y // gap
 	col = x // gap
 
-	print("ROW : ", row)
-	print("COL : ", col)
+	#print("ROW : ", row)
+	#print("COL : ", col)
 
 	return row, col
 

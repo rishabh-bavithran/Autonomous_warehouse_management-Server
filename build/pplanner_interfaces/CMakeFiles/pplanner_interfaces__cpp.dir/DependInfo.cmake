@@ -19,6 +19,14 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/aruco_dataset__builder.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/aruco_dataset__struct.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/aruco_dataset__traits.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_grid__builder.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_grid__struct.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_grid__traits.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_gridset__builder.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_gridset__struct.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/detail/path_gridset__traits.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/path_grid.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/path_gridset.hpp" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp"
   )
 
 

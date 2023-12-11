@@ -1,2 +1,4 @@
 /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces:msg/ArucoData.idl
 /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces:msg/ArucoDataset.idl
+/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces:msg/PathGrid.idl
+/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_adapter/pplanner_interfaces:msg/PathGridset.idl

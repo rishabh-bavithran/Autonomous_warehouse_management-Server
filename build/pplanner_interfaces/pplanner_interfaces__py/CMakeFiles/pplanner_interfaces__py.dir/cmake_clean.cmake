@@ -7,6 +7,10 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/pplanner_interfaces/msg/_aruco_data_s.c"
   "../rosidl_generator_py/pplanner_interfaces/msg/_aruco_dataset.py"
   "../rosidl_generator_py/pplanner_interfaces/msg/_aruco_dataset_s.c"
+  "../rosidl_generator_py/pplanner_interfaces/msg/_path_grid.py"
+  "../rosidl_generator_py/pplanner_interfaces/msg/_path_grid_s.c"
+  "../rosidl_generator_py/pplanner_interfaces/msg/_path_gridset.py"
+  "../rosidl_generator_py/pplanner_interfaces/msg/_path_gridset_s.c"
   "CMakeFiles/pplanner_interfaces__py"
 )
 

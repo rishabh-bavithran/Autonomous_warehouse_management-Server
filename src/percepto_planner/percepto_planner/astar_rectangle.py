@@ -186,9 +186,9 @@ def make_grid(rows, cols, height):
 	gap = height // rows
 	for i in range(rows):
 		grid.append([])
-		print("Doing ROWS")
+		#print("Doing ROWS")
 		for j in range(cols):
-			print("DOing Columns" , j)
+			#print("DOing Columns" , j)
 			spot = Spot(i, j, gap, rows, cols)
 			grid[i].append(spot)
 
@@ -217,12 +217,12 @@ def draw(win, grid, rows, cols,  width, height):
 def get_clicked_pos(pos, rows, width , height):
 	gap = height // rows
 	x, y = pos
-	print(x, y)
+	#print(x, y)
 	row = y // gap
 	col = x // gap
 
-	print("ROW : ", row)
-	print("COL : ", col)
+	#print("ROW : ", row)
+	#print("COL : ", col)
 
 	return row, col
 
@@ -244,7 +244,7 @@ def main(win, width , height):
 
 			if pygame.mouse.get_pressed()[0]: # LEFT
 				pos = pygame.mouse.get_pos()
-				print(pos)
+				#print(pos)
 				row, col = get_clicked_pos(pos, ROWS, width, height)
 				spot = grid[row][col]
 				if not start and spot != end:
@@ -271,10 +271,10 @@ def main(win, width , height):
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_SPACE and start and end:
 					for row in grid:
-						print(row)
+						#print(row)
 						for spot in row:
-							a,b =spot.get_pos()
-							print(a,b)
+							#a,b =spot.get_pos()
+							#print(a,b)
 							spot.update_neighbors(grid)
 
 

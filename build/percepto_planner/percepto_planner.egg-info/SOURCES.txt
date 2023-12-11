@@ -10,6 +10,7 @@ setup.py
 ../../build/percepto_planner/percepto_planner.egg-info/zip-safe
 percepto_planner/__init__.py
 percepto_planner/astar.py
+percepto_planner/astar_rec_pathpub.py
 percepto_planner/astar_rectangle.py
 percepto_planner/camera_testing_1.py
 percepto_planner/camera_testing_2.py

@@ -250,8 +250,20 @@ CMakeFiles/pplanner_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator
   rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_data__functions.h \
   rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__type_support.h \
   rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__struct.h \
-  rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__functions.h
+  rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__functions.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__type_support.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__struct.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__functions.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__type_support.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__struct.h \
+  rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__functions.h
 
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__type_support.h:
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__functions.h:
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__struct.h:
 
 rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__functions.h:
 
@@ -294,6 +306,8 @@ rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_data__type_support.h:
 rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__type_support.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__functions.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
@@ -482,6 +496,8 @@ rosidl_generator_c/pplanner_interfaces/msg/detail/aruco_dataset__struct.h:
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_grid__type_support.h:
 
 /usr/include/python3.10/namespaceobject.h:
 
@@ -724,6 +740,8 @@ rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesup
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_stat.h:
+
+rosidl_generator_c/pplanner_interfaces/msg/detail/path_gridset__struct.h:
 
 /usr/include/linux/stat.h:
 

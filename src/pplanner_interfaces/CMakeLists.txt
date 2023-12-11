@@ -12,6 +12,8 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/ArucoData.msg"
   "msg/ArucoDataset.msg"
+  "msg/PathGrid.msg"
+  "msg/PathGridset.msg"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

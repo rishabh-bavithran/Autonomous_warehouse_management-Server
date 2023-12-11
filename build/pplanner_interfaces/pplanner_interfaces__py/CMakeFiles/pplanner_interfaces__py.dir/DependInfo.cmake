@@ -19,6 +19,10 @@ set(CMAKE_MULTIPLE_OUTPUT_PAIRS
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_aruco_data_s.c" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_aruco_dataset.py" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_aruco_dataset_s.c" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_path_grid.py" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_path_grid_s.c" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_path_gridset.py" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/msg/_path_gridset_s.c" "/home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_py/pplanner_interfaces/_pplanner_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   )
 
 
