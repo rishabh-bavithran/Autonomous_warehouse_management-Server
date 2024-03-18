@@ -1,0 +1,71 @@
+running egg_info
+creating ../../build/percepto_planner/percepto_planner.egg-info
+writing ../../build/percepto_planner/percepto_planner.egg-info/PKG-INFO
+writing dependency_links to ../../build/percepto_planner/percepto_planner.egg-info/dependency_links.txt
+writing entry points to ../../build/percepto_planner/percepto_planner.egg-info/entry_points.txt
+writing requirements to ../../build/percepto_planner/percepto_planner.egg-info/requires.txt
+writing top-level names to ../../build/percepto_planner/percepto_planner.egg-info/top_level.txt
+writing manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+reading manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+writing manifest file '../../build/percepto_planner/percepto_planner.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/rishabh/ros2_ws/build/percepto_planner/build
+creating /home/rishabh/ros2_ws/build/percepto_planner/build/lib
+creating /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/astar_rec_pathpub.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/astar_rectangle.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/path_planner.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/__init__.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/sorting_assigner.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/enumeratetest.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/camera_testing_1.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/timerthreadtest.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/astar.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/camera_testing_2.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/publishtypetest.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/visual_feed.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+copying percepto_planner/int64multiarraytest.py -> /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner
+running install
+running install_lib
+creating /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/astar_rec_pathpub.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/astar_rectangle.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/path_planner.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/__init__.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/sorting_assigner.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/enumeratetest.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/camera_testing_1.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/timerthreadtest.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/astar.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/camera_testing_2.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/publishtypetest.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/visual_feed.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+copying /home/rishabh/ros2_ws/build/percepto_planner/build/lib/percepto_planner/int64multiarraytest.py -> /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/astar_rec_pathpub.py to astar_rec_pathpub.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/astar_rectangle.py to astar_rectangle.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/path_planner.py to path_planner.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/sorting_assigner.py to sorting_assigner.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/enumeratetest.py to enumeratetest.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/camera_testing_1.py to camera_testing_1.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/timerthreadtest.py to timerthreadtest.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/astar.py to astar.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/camera_testing_2.py to camera_testing_2.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/publishtypetest.py to publishtypetest.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/visual_feed.py to visual_feed.cpython-310.pyc
+byte-compiling /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner/int64multiarraytest.py to int64multiarraytest.cpython-310.pyc
+running install_data
+creating /home/rishabh/ros2_ws/install/percepto_planner/share/ament_index
+creating /home/rishabh/ros2_ws/install/percepto_planner/share/ament_index/resource_index
+creating /home/rishabh/ros2_ws/install/percepto_planner/share/ament_index/resource_index/packages
+copying resource/percepto_planner -> /home/rishabh/ros2_ws/install/percepto_planner/share/ament_index/resource_index/packages
+copying package.xml -> /home/rishabh/ros2_ws/install/percepto_planner/share/percepto_planner
+running install_egg_info
+Copying ../../build/percepto_planner/percepto_planner.egg-info to /home/rishabh/ros2_ws/install/percepto_planner/lib/python3.10/site-packages/percepto_planner-0.0.0-py3.10.egg-info
+running install_scripts
+Installing path_planner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing sorting_assigner script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing timerthreadtest script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+Installing visual_feed script to /home/rishabh/ros2_ws/install/percepto_planner/lib/percepto_planner
+writing list of installed files to '/home/rishabh/ros2_ws/build/percepto_planner/install.log'

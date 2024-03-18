@@ -103,7 +103,7 @@ rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp: rosidl_adapter/ppla
 rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp: rosidl_adapter/pplanner_interfaces/msg/PathGrid.idl
 rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp: rosidl_adapter/pplanner_interfaces/msg/PathGridset.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rishabh/ros2_ws/build/pplanner_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp__arguments.json
+	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_cpp/cmake/../../../lib/rosidl_generator_cpp/rosidl_generator_cpp --generator-arguments-file /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_generator_cpp__arguments.json
 
 rosidl_generator_cpp/pplanner_interfaces/msg/detail/aruco_data__builder.hpp: rosidl_generator_cpp/pplanner_interfaces/msg/aruco_data.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/pplanner_interfaces/msg/detail/aruco_data__builder.hpp

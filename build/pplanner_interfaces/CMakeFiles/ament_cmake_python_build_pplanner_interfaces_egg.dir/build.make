@@ -67,7 +67,7 @@ include CMakeFiles/ament_cmake_python_build_pplanner_interfaces_egg.dir/compiler
 include CMakeFiles/ament_cmake_python_build_pplanner_interfaces_egg.dir/progress.make
 
 CMakeFiles/ament_cmake_python_build_pplanner_interfaces_egg:
-	cd /home/rishabh/ros2_ws/build/pplanner_interfaces/ament_cmake_python/pplanner_interfaces && /usr/bin/python3.10 setup.py egg_info
+	cd /home/rishabh/ros2_ws/build/pplanner_interfaces/ament_cmake_python/pplanner_interfaces && /usr/bin/python3 setup.py egg_info
 
 ament_cmake_python_build_pplanner_interfaces_egg: CMakeFiles/ament_cmake_python_build_pplanner_interfaces_egg
 ament_cmake_python_build_pplanner_interfaces_egg: CMakeFiles/ament_cmake_python_build_pplanner_interfaces_egg.dir/build.make

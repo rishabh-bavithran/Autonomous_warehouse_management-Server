@@ -80,7 +80,7 @@ rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_data__type_support.cpp: ros
 rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_data__type_support.cpp: rosidl_adapter/pplanner_interfaces/msg/PathGrid.idl
 rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_data__type_support.cpp: rosidl_adapter/pplanner_interfaces/msg/PathGridset.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/rishabh/ros2_ws/build/pplanner_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ type support dispatch for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp --generator-arguments-file /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_typesupport_cpp__arguments.json --typesupports rosidl_typesupport_fastrtps_cpp rosidl_typesupport_introspection_cpp
+	/usr/bin/python3 /opt/ros/humble/lib/rosidl_typesupport_cpp/rosidl_typesupport_cpp --generator-arguments-file /home/rishabh/ros2_ws/build/pplanner_interfaces/rosidl_typesupport_cpp__arguments.json --typesupports rosidl_typesupport_fastrtps_cpp rosidl_typesupport_introspection_cpp
 
 rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_dataset__type_support.cpp: rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_data__type_support.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_typesupport_cpp/pplanner_interfaces/msg/aruco_dataset__type_support.cpp

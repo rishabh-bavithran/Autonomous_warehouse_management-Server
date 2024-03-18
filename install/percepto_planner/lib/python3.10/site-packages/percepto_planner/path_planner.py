@@ -34,10 +34,10 @@ class PathPlanning(Node):
 		super().__init__("path_planner")
 		self.get_logger().info("Path Planning Node has started")
 		self.total_robot_count = 1
-		self.ROWS = 18
-		self.COLUMNS = 32
-		self.WIDTH = 1280
-		self.HEIGHT = 720
+		self.ROWS = 720 #18 for gap 40 in visual feed 
+		self.COLUMNS = 1280 #32 for gap 40 in visual feed 
+		self.WIDTH = 2560 #1280 
+		self.HEIGHT = 1440 #720
 		self.robots_target_list = []
 		self.robots_list = ArucoDataset()
 		self.last_end_row = None
@@ -71,6 +71,7 @@ class PathPlanning(Node):
 			path_grid_list.path = path_grid
 			self.get_logger().info("Path is Publishing")
 			self.path_grid_pub.publish(path_grid_list)
+
 
 	def callback_latest_robot_pos(self, msg):
 		if self.total_robot_count == len(msg.dataset):
@@ -110,6 +111,9 @@ class PathPlanning(Node):
 
 		robot_pos = grid[robot_row_pos][robot_column_pos]
 		robot_pos.make_start()
+		self.get_logger().info("Start row" + str(robot_row_pos) + "Start col" + str(robot_column_pos))
+		self.get_logger().info("End row" + str(end_row) + "End col" + str(end_column))
+
 
 		for row in grid:
 			#print(row)
@@ -298,7 +302,7 @@ def algorithm(draw, grid, start, end):
 					open_set_hash.add(neighbor)
 					neighbor.make_open()
 
-		draw()
+		#draw()
 
 		if current != start:
 			current.make_closed()

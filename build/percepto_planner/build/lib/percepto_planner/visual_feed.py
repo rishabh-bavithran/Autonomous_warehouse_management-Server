@@ -17,11 +17,11 @@ class MyNode(Node):
         self.get_logger().info("Hello ROS2")
         self.publish_robot_data = self.create_publisher(ArucoDataset,"robots",10)
         self.publish_object_data = self.create_publisher(ArucoDataset,"objects",10)
-        self.cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(4) #4 for External Camera
         self.create_timer(0.1, self.camera_feed)
         self.width_frame = self.cap.get(cv2.CAP_PROP_FRAME_WIDTH)
         self.height_frame = self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-        self.gap = 40
+        self.gap = 1
 
         self.get_logger().info("WIDTH AND HEIGHT " + str(type(self.width_frame)))    
         self.get_logger().info("wIDTH : " + str(self.width_frame))
