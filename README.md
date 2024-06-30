@@ -18,7 +18,5 @@ The Robot Node receives the path from the Path Planning Node and the robot's cur
 
 By leveraging these components, the project demonstrates a dynamic and efficient approach to warehouse automation using swarm robotics and vision-based localization.
 
-https://github.com/rishabh-bavithran/Autonomous_warehouse_management-Server/assets/145865695/3003774b-1298-4c0c-9e74-a58faa5a604f
-
-
+https://github.com/rishabh-bavithran/Autonomous_warehouse_management-Server/assets/145865695/7c31667e-777c-4a4d-834d-233fe41bbe1d
 
