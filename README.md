@@ -17,3 +17,8 @@ The Path Planning Node receives data from both the Camera Node and the Assigner 
 The Robot Node receives the path from the Path Planning Node and the robot's current position from the Camera Node. The path data, given as x and y coordinates, is used to calculate the required orientation of the robot. A PID controller serves as the control algorithm, interfacing with the Raspberry Pi's GPIO pins to control the motors.
 
 By leveraging these components, the project demonstrates a dynamic and efficient approach to warehouse automation using swarm robotics and vision-based localization.
+
+https://github.com/rishabh-bavithran/Autonomous_warehouse_management-Server/assets/145865695/3003774b-1298-4c0c-9e74-a58faa5a604f
+
+
+
