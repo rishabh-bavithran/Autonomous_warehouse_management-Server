@@ -1,7 +1,6 @@
 ### Vision-Based Dynamic Warehouse Automation using Swarm Robotics: SERVER SECTION
 
-**RQT Graph
-![rqt_graph](https://github.com/rishabh-bavithran/Autonomous_warehouse_management-Server/assets/145865695/965b3e34-f878-46e3-aa34-e3e8a21fd112)
+![rqt_graph_2](https://github.com/rishabh-bavithran/Autonomous_warehouse_management-Server/assets/145865695/6fafb971-f3f8-4038-bd19-7d9f93a50625)
 
 
 Inspired by Amazon's Pegasus robots used for warehouse management, this project aims to employ a swarm of robots to pick up various objects and place them at different destinations based on situational requirements. A single global camera provides feedback to localize the robots, objects, and destinations.
